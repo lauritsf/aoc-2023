@@ -9,15 +9,16 @@ const std::map<std::string, int> DIGIT_MAP = {
 
 std::string convertWordToDigit(const std::string &word)
 {
-    if (word.length() > 1)
+    auto it = DIGIT_MAP.find(word);
+    if (it != DIGIT_MAP.end())
     {
-        auto it = DIGIT_MAP.find(word);
-        if (it != DIGIT_MAP.end())
-        {
-            return std::to_string(it->second);
-        }
+        return std::to_string(it->second);
     }
-    return word;
+    else
+    {
+        std::cerr << "Could not find digit for word " << word << std::endl;
+        return "";
+    }
 }
 
 int main()
@@ -53,8 +54,8 @@ int main()
                     if (line.substr(i, word.length()) == word)
                     {
                         if (first_digit.empty())
-                            first_digit = word;
-                        last_digit = word;
+                            first_digit = convertWordToDigit(word);
+                        last_digit = convertWordToDigit(word);
                         break;
                     }
                 }
@@ -63,10 +64,9 @@ int main()
 
         if (!first_digit.empty() && !last_digit.empty())
         {
-            std::string digits = convertWordToDigit(first_digit) + convertWordToDigit(last_digit);
+            std::string digits = first_digit + last_digit;
             try
             {
-                std::cout << "Adding " << digits << std::endl;
                 total_sum += std::stoi(digits);
             }
             catch (const std::invalid_argument &)
