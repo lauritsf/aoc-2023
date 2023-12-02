@@ -8,7 +8,7 @@ Link to the [problem statement](https://adventofcode.com/2023/day/1).
 
 The task is to extract the first and last digit from each line of the input, combine them into a two-digit number, and calculate the sum of these numbers.
 
-### Solution: [day1.cpp for Part 1](part1.cpp)
+### Solution: [day1:cpp for Part 1](part1.cpp)
 
 #### Approach
 
@@ -26,7 +26,7 @@ The task is to extract the first and last digit from each line of the input, com
 
 The challenge now includes processing written number names (e.g., "one", "two") in the input.
 
-### Solution: [day1.cpp for Part 2](part2.cpp)
+### Solution: [day1:cpp for Part 2](part2.cpp)
 
 #### Approach
 
